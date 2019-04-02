@@ -8,20 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		F7DEB8812252C06600BF9726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8802252C06600BF9726 /* AppDelegate.swift */; };
-		F7DEB8832252C06600BF9726 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8822252C06600BF9726 /* ViewController.swift */; };
-		F7DEB8862252C06600BF9726 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7DEB8842252C06600BF9726 /* Main.storyboard */; };
 		F7DEB8882252C06700BF9726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7DEB8872252C06700BF9726 /* Assets.xcassets */; };
 		F7DEB88B2252C06700BF9726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7DEB8892252C06700BF9726 /* LaunchScreen.storyboard */; };
+		F7DEB8932252C0C900BF9726 /* PaletteTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8922252C0C900BF9726 /* PaletteTabBarController.swift */; };
+		F7DEB8952252C17A00BF9726 /* PaletteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8942252C17A00BF9726 /* PaletteListViewController.swift */; };
+		F7DEB8972252C44600BF9726 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8962252C44600BF9726 /* UIViewExtension.swift */; };
+		F7DEB89A2252C6EA00BF9726 /* PaletteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8992252C6EA00BF9726 /* PaletteTableViewCell.swift */; };
+		F7DEB89C2252C7CF00BF9726 /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB89B2252C7CF00BF9726 /* ColorPaletteView.swift */; };
+		F7DEB89E2252E81800BF9726 /* PalettePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB89D2252E81800BF9726 /* PalettePhoto.swift */; };
+		F7DEB8A72253D66E00BF9726 /* ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8A62253D66E00BF9726 /* ImageUploadViewController.swift */; };
+		F7DEB8A92253D86D00BF9726 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8A82253D86D00BF9726 /* ImagePickerService.swift */; };
+		F7DEB8AB2253DEA800BF9726 /* ImaggaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8AA2253DEA800BF9726 /* ImaggaService.swift */; };
+		F7EA6F482253F6960095956C /* ImaggaUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F472253F6960095956C /* ImaggaUploadResponse.swift */; };
+		F7EA6F4A225405D80095956C /* ImaggaRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F49225405D80095956C /* ImaggaRoute.swift */; };
+		F7EA6F4C2254106B0095956C /* PallettePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F4B2254106B0095956C /* PallettePhotoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F7DEB87D2252C06600BF9726 /* Palette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Palette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DEB8802252C06600BF9726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7DEB8822252C06600BF9726 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F7DEB8852252C06600BF9726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7DEB8872252C06700BF9726 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7DEB88A2252C06700BF9726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7DEB88C2252C06700BF9726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7DEB8922252C0C900BF9726 /* PaletteTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteTabBarController.swift; sourceTree = "<group>"; };
+		F7DEB8942252C17A00BF9726 /* PaletteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteListViewController.swift; sourceTree = "<group>"; };
+		F7DEB8962252C44600BF9726 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		F7DEB8992252C6EA00BF9726 /* PaletteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteTableViewCell.swift; sourceTree = "<group>"; };
+		F7DEB89B2252C7CF00BF9726 /* ColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteView.swift; sourceTree = "<group>"; };
+		F7DEB89D2252E81800BF9726 /* PalettePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalettePhoto.swift; sourceTree = "<group>"; };
+		F7DEB8A62253D66E00BF9726 /* ImageUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadViewController.swift; sourceTree = "<group>"; };
+		F7DEB8A82253D86D00BF9726 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
+		F7DEB8AA2253DEA800BF9726 /* ImaggaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaService.swift; sourceTree = "<group>"; };
+		F7EA6F472253F6960095956C /* ImaggaUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaUploadResponse.swift; sourceTree = "<group>"; };
+		F7EA6F49225405D80095956C /* ImaggaRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaRoute.swift; sourceTree = "<group>"; };
+		F7EA6F4B2254106B0095956C /* PallettePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PallettePhotoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +74,88 @@
 		F7DEB87F2252C06600BF9726 /* Palette */ = {
 			isa = PBXGroup;
 			children = (
+				F7EA6F512254125C0095956C /* Resources */,
+				F7EA6F4F225411190095956C /* Views */,
+				F7EA6F502254123B0095956C /* ViewControllers */,
+				F7DEB8982252C44E00BF9726 /* Extensions */,
+				F7EA6F52225412740095956C /* Models */,
+				F7EA6F4D225410FF0095956C /* ImagePickerService */,
+				F7DEB8AE2253E03D00BF9726 /* ImaggaService */,
+				F7EA6F4E2254110A0095956C /* ModelControllers */,
+			);
+			path = Palette;
+			sourceTree = "<group>";
+		};
+		F7DEB8982252C44E00BF9726 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F7DEB8962252C44600BF9726 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F7DEB8AE2253E03D00BF9726 /* ImaggaService */ = {
+			isa = PBXGroup;
+			children = (
+				F7DEB8AA2253DEA800BF9726 /* ImaggaService.swift */,
+				F7EA6F472253F6960095956C /* ImaggaUploadResponse.swift */,
+				F7EA6F49225405D80095956C /* ImaggaRoute.swift */,
+			);
+			path = ImaggaService;
+			sourceTree = "<group>";
+		};
+		F7EA6F4D225410FF0095956C /* ImagePickerService */ = {
+			isa = PBXGroup;
+			children = (
+				F7DEB8A82253D86D00BF9726 /* ImagePickerService.swift */,
+			);
+			path = ImagePickerService;
+			sourceTree = "<group>";
+		};
+		F7EA6F4E2254110A0095956C /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7EA6F4B2254106B0095956C /* PallettePhotoController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		F7EA6F4F225411190095956C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7DEB89B2252C7CF00BF9726 /* ColorPaletteView.swift */,
+				F7DEB8992252C6EA00BF9726 /* PaletteTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7EA6F502254123B0095956C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7DEB8A62253D66E00BF9726 /* ImageUploadViewController.swift */,
+				F7DEB8922252C0C900BF9726 /* PaletteTabBarController.swift */,
+				F7DEB8942252C17A00BF9726 /* PaletteListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F7EA6F512254125C0095956C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				F7DEB8802252C06600BF9726 /* AppDelegate.swift */,
-				F7DEB8822252C06600BF9726 /* ViewController.swift */,
-				F7DEB8842252C06600BF9726 /* Main.storyboard */,
 				F7DEB8872252C06700BF9726 /* Assets.xcassets */,
 				F7DEB8892252C06700BF9726 /* LaunchScreen.storyboard */,
 				F7DEB88C2252C06700BF9726 /* Info.plist */,
 			);
-			path = Palette;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F7EA6F52225412740095956C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7DEB89D2252E81800BF9726 /* PalettePhoto.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +218,6 @@
 			files = (
 				F7DEB88B2252C06700BF9726 /* LaunchScreen.storyboard in Resources */,
 				F7DEB8882252C06700BF9726 /* Assets.xcassets in Resources */,
-				F7DEB8862252C06600BF9726 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +228,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7DEB8832252C06600BF9726 /* ViewController.swift in Sources */,
+				F7EA6F4A225405D80095956C /* ImaggaRoute.swift in Sources */,
+				F7DEB89A2252C6EA00BF9726 /* PaletteTableViewCell.swift in Sources */,
+				F7DEB8A72253D66E00BF9726 /* ImageUploadViewController.swift in Sources */,
+				F7EA6F4C2254106B0095956C /* PallettePhotoController.swift in Sources */,
+				F7DEB89E2252E81800BF9726 /* PalettePhoto.swift in Sources */,
+				F7DEB8972252C44600BF9726 /* UIViewExtension.swift in Sources */,
+				F7DEB8952252C17A00BF9726 /* PaletteListViewController.swift in Sources */,
+				F7DEB8932252C0C900BF9726 /* PaletteTabBarController.swift in Sources */,
+				F7DEB8A92253D86D00BF9726 /* ImagePickerService.swift in Sources */,
+				F7DEB89C2252C7CF00BF9726 /* ColorPaletteView.swift in Sources */,
 				F7DEB8812252C06600BF9726 /* AppDelegate.swift in Sources */,
+				F7DEB8AB2253DEA800BF9726 /* ImaggaService.swift in Sources */,
+				F7EA6F482253F6960095956C /* ImaggaUploadResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F7DEB8842252C06600BF9726 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7DEB8852252C06600BF9726 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F7DEB8892252C06700BF9726 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77U2457882;
-				INFOPLIST_FILE = Palette/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Palette/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77U2457882;
-				INFOPLIST_FILE = Palette/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Palette/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
