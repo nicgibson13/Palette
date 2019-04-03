@@ -16,12 +16,15 @@
 		F7DEB89A2252C6EA00BF9726 /* PaletteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8992252C6EA00BF9726 /* PaletteTableViewCell.swift */; };
 		F7DEB89C2252C7CF00BF9726 /* ColorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB89B2252C7CF00BF9726 /* ColorPaletteView.swift */; };
 		F7DEB89E2252E81800BF9726 /* PalettePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB89D2252E81800BF9726 /* PalettePhoto.swift */; };
-		F7DEB8A72253D66E00BF9726 /* ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8A62253D66E00BF9726 /* ImageUploadViewController.swift */; };
-		F7DEB8A92253D86D00BF9726 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8A82253D86D00BF9726 /* ImagePickerService.swift */; };
 		F7DEB8AB2253DEA800BF9726 /* ImaggaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DEB8AA2253DEA800BF9726 /* ImaggaService.swift */; };
 		F7EA6F482253F6960095956C /* ImaggaUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F472253F6960095956C /* ImaggaUploadResponse.swift */; };
 		F7EA6F4A225405D80095956C /* ImaggaRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F49225405D80095956C /* ImaggaRoute.swift */; };
 		F7EA6F4C2254106B0095956C /* PallettePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F4B2254106B0095956C /* PallettePhotoController.swift */; };
+		F7EA6F5422542BBE0095956C /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F5322542BBE0095956C /* UnsplashPhoto.swift */; };
+		F7EA6F5622542C3F0095956C /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F5522542C3F0095956C /* UnsplashService.swift */; };
+		F7EA6F5822542C720095956C /* UnsplashRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F5722542C720095956C /* UnsplashRoute.swift */; };
+		F7EA6F5B225430A40095956C /* ImaggaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F5A225430A40095956C /* ImaggaColor.swift */; };
+		F7EA6F5D225437020095956C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EA6F5C225437020095956C /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,12 +39,15 @@
 		F7DEB8992252C6EA00BF9726 /* PaletteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteTableViewCell.swift; sourceTree = "<group>"; };
 		F7DEB89B2252C7CF00BF9726 /* ColorPaletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletteView.swift; sourceTree = "<group>"; };
 		F7DEB89D2252E81800BF9726 /* PalettePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalettePhoto.swift; sourceTree = "<group>"; };
-		F7DEB8A62253D66E00BF9726 /* ImageUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadViewController.swift; sourceTree = "<group>"; };
-		F7DEB8A82253D86D00BF9726 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
 		F7DEB8AA2253DEA800BF9726 /* ImaggaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaService.swift; sourceTree = "<group>"; };
 		F7EA6F472253F6960095956C /* ImaggaUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaUploadResponse.swift; sourceTree = "<group>"; };
 		F7EA6F49225405D80095956C /* ImaggaRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaRoute.swift; sourceTree = "<group>"; };
 		F7EA6F4B2254106B0095956C /* PallettePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PallettePhotoController.swift; sourceTree = "<group>"; };
+		F7EA6F5322542BBE0095956C /* UnsplashPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
+		F7EA6F5522542C3F0095956C /* UnsplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		F7EA6F5722542C720095956C /* UnsplashRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRoute.swift; sourceTree = "<group>"; };
+		F7EA6F5A225430A40095956C /* ImaggaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImaggaColor.swift; sourceTree = "<group>"; };
+		F7EA6F5C225437020095956C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +85,9 @@
 				F7EA6F502254123B0095956C /* ViewControllers */,
 				F7DEB8982252C44E00BF9726 /* Extensions */,
 				F7EA6F52225412740095956C /* Models */,
-				F7EA6F4D225410FF0095956C /* ImagePickerService */,
 				F7DEB8AE2253E03D00BF9726 /* ImaggaService */,
 				F7EA6F4E2254110A0095956C /* ModelControllers */,
+				F7EA6F59225430450095956C /* UnsplashService */,
 			);
 			path = Palette;
 			sourceTree = "<group>";
@@ -90,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				F7DEB8962252C44600BF9726 /* UIViewExtension.swift */,
+				F7EA6F5C225437020095956C /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -102,14 +109,6 @@
 				F7EA6F49225405D80095956C /* ImaggaRoute.swift */,
 			);
 			path = ImaggaService;
-			sourceTree = "<group>";
-		};
-		F7EA6F4D225410FF0095956C /* ImagePickerService */ = {
-			isa = PBXGroup;
-			children = (
-				F7DEB8A82253D86D00BF9726 /* ImagePickerService.swift */,
-			);
-			path = ImagePickerService;
 			sourceTree = "<group>";
 		};
 		F7EA6F4E2254110A0095956C /* ModelControllers */ = {
@@ -132,7 +131,6 @@
 		F7EA6F502254123B0095956C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F7DEB8A62253D66E00BF9726 /* ImageUploadViewController.swift */,
 				F7DEB8922252C0C900BF9726 /* PaletteTabBarController.swift */,
 				F7DEB8942252C17A00BF9726 /* PaletteListViewController.swift */,
 			);
@@ -154,8 +152,19 @@
 			isa = PBXGroup;
 			children = (
 				F7DEB89D2252E81800BF9726 /* PalettePhoto.swift */,
+				F7EA6F5322542BBE0095956C /* UnsplashPhoto.swift */,
+				F7EA6F5A225430A40095956C /* ImaggaColor.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F7EA6F59225430450095956C /* UnsplashService */ = {
+			isa = PBXGroup;
+			children = (
+				F7EA6F5522542C3F0095956C /* UnsplashService.swift */,
+				F7EA6F5722542C720095956C /* UnsplashRoute.swift */,
+			);
+			path = UnsplashService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,17 +239,20 @@
 			files = (
 				F7EA6F4A225405D80095956C /* ImaggaRoute.swift in Sources */,
 				F7DEB89A2252C6EA00BF9726 /* PaletteTableViewCell.swift in Sources */,
-				F7DEB8A72253D66E00BF9726 /* ImageUploadViewController.swift in Sources */,
 				F7EA6F4C2254106B0095956C /* PallettePhotoController.swift in Sources */,
 				F7DEB89E2252E81800BF9726 /* PalettePhoto.swift in Sources */,
 				F7DEB8972252C44600BF9726 /* UIViewExtension.swift in Sources */,
+				F7EA6F5D225437020095956C /* UIColor.swift in Sources */,
 				F7DEB8952252C17A00BF9726 /* PaletteListViewController.swift in Sources */,
 				F7DEB8932252C0C900BF9726 /* PaletteTabBarController.swift in Sources */,
-				F7DEB8A92253D86D00BF9726 /* ImagePickerService.swift in Sources */,
 				F7DEB89C2252C7CF00BF9726 /* ColorPaletteView.swift in Sources */,
+				F7EA6F5B225430A40095956C /* ImaggaColor.swift in Sources */,
 				F7DEB8812252C06600BF9726 /* AppDelegate.swift in Sources */,
 				F7DEB8AB2253DEA800BF9726 /* ImaggaService.swift in Sources */,
+				F7EA6F5422542BBE0095956C /* UnsplashPhoto.swift in Sources */,
 				F7EA6F482253F6960095956C /* ImaggaUploadResponse.swift in Sources */,
+				F7EA6F5622542C3F0095956C /* UnsplashService.swift in Sources */,
+				F7EA6F5822542C720095956C /* UnsplashRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,24 +16,14 @@ class ColorPaletteView: UIView {
         }
     }
     
-    override func updateConstraints() {
-        print("Begin 💩 Updating Constraints for ColorStackView")
-        super.updateConstraints()
-        print("End 💩  Updating Constraints for ColorStackView")
-    }
-    
     override func layoutSubviews() {
-        print("Begin 💩 Laying Out Subviews for ColorStackView")
         super.layoutSubviews()
         setUpViews()
-        print("Begin 💩  Laying Out Subviews for ColorStackView")
     }
     
     init(colors: [UIColor] = [], frame: CGRect = .zero) {
-        print("Begin 💩  INitializing ColorStackView")
         self.colors = colors
         super.init(frame: frame)
-        print("End 💩 INitializing ColorStackView")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,13 +52,14 @@ class ColorPaletteView: UIView {
                 colorBrick.roundCorners(cornerRadius: 12, corners: [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
             }
             addSubview(colorBrick)
-            colorStackView.addArrangedSubview(colorBrick)
+            self.colorStackView.addArrangedSubview(colorBrick)
+            layoutIfNeeded()
         }
     }
     
     private func resetColorBricks() {
         for subView in colorStackView.arrangedSubviews {
-            colorStackView.removeArrangedSubview(subView)
+            self.colorStackView.removeArrangedSubview(subView)
         }
     }
     

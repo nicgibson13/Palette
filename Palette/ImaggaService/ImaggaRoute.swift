@@ -13,9 +13,6 @@ enum ImaggaRoute {
     
     typealias HTTPMethod = String
     
-    static let baseURLPath = "http://api.imagga.com/v2"
-    static let authenticationToken = "Basic YWNjXzJmODQ2NWFjYmM2NzQxMDo3Y2Y4ODFjNDViOGI0YzE0YmE4YmY4NWNiMmE3ZTczMw=="
-    
     case colors(String)
     case upload(UIImage)
     
@@ -61,11 +58,11 @@ enum ImaggaRoute {
     }
     
     var urlRequest: URLRequest? {
-        guard let url = URL(string: ImaggaRoute.baseURLPath) else { return nil }
+        guard let url = URL(string: "") else { return nil }
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method
         request.httpBody = bodyData
-        request.setValue(ImaggaRoute.authenticationToken, forHTTPHeaderField: "Authorization")
+//        request.setValue(ImaggaRoute.authenticationToken, forHTTPHeaderField: "Authorization")
         return request
     }
 }

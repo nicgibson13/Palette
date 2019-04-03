@@ -11,44 +11,44 @@ import UIKit
 class PaletteTableViewCell: UITableViewCell {
     
     //MARK: - Properties
-    var palletPhoto: PalettePhoto? {
+    var unsplashPhoto: UnsplashPhoto? {
         didSet{
            updateViews()
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        print("Begin 🥶 Initalizing PaletteTableViewCell")
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        print("End 🥶 Initalizing PaletteTableViewCell")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func updateConstraints() {
-        print("Begin 🥶 Updating Constraints for PaletteTableViewCell")
-        super.updateConstraints()
-        print("End  🥶 Updating Constraints for PaletteTableViewCell")
-    }
-    
     override func layoutSubviews() {
-        print("Begin 🥶 Laying Out Subviews for PaletteTableViewCell")
         setUpViews()
         super.layoutSubviews()
-        print("End 🥶 Laying Out Subviews for PaletteTableViewCell")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        colorPaletteView.colors = [UIColor.lightGray, UIColor.darkGray]
     }
     
     func updateViews(){
-        paletteImageView.image = palletPhoto?.image
-        paletteTitleLabel.text = palletPhoto?.description
-        colorPaletteView.colors = [#colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1),#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1),#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),#colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1),#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)]
-        colorPaletteView.colorStackView.arrangedSubviews.first?.layer.cornerRadius = 12
-        colorPaletteView.layer.masksToBounds = true
-        colorPaletteView.colorStackView.layer.masksToBounds = true
-        colorPaletteView.colorStackView.arrangedSubviews.forEach{ $0.layer.masksToBounds = true }
+        guard let unsplashPhoto = unsplashPhoto else { return }
+        fetchAndSetImage(for: unsplashPhoto)
+        fetchAndSetColors(for: unsplashPhoto)
+        paletteTitleLabel.text = unsplashPhoto.description
+    }
+    
+    func fetchAndSetImage(for unsplashPhoto: UnsplashPhoto) {
+        UnsplashService.shared.fetchImage(for: unsplashPhoto) { (image) in
+            DispatchQueue.main.async {
+                self.paletteImageView.image = image
+            }
+        }
+    }
+    
+    func fetchAndSetColors(for unsplashPhoto: UnsplashPhoto) {
+        ImaggaService().fetchColorsFor(imagePath: unsplashPhoto.urls.small) { (colors) in
+            DispatchQueue.main.async { [unowned self] in
+                guard let colors = colors else { return }
+                self.colorPaletteView.colors = colors
+            }
+        }
     }
     
     func setUpViews(){
@@ -68,8 +68,8 @@ class PaletteTableViewCell: UITableViewCell {
     lazy var paletteImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 8
-        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 12
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     

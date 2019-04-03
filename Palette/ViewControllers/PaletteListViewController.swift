@@ -24,6 +24,11 @@ class PaletteListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureTableView()
+        UnsplashService.shared.fetchFromUnsplash(for: .random) { (_) in
+            DispatchQueue.main.async {
+                self.paletteTableView.reloadData()
+            }
+        }
     }
     
     func addAllSubViews(){
@@ -47,6 +52,7 @@ class PaletteListViewController: UIViewController {
         paletteTableView.dataSource = self
         paletteTableView.delegate = self
         paletteTableView.register(PaletteTableViewCell.self, forCellReuseIdentifier: "colorCell")
+        paletteTableView.allowsSelection = false
     }
     
     //MARK: - Views
@@ -95,13 +101,13 @@ extension PaletteListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PalettePhotoController.shared.photos.count
+        return UnsplashService.shared.photos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! PaletteTableViewCell
-        let palletPhoto = PalettePhotoController.shared.photos[indexPath.row]
-        cell.palletPhoto = palletPhoto
+        let unsplashPhoto = UnsplashService.shared.photos[indexPath.row]
+        cell.unsplashPhoto = unsplashPhoto
         return cell
     }
 }

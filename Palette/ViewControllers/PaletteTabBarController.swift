@@ -13,9 +13,7 @@ class PaletteTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let photosListNav = UINavigationController(rootViewController: PaletteListViewController())
-        let imageUploadNav = UINavigationController(rootViewController: ImageUploadViewController())
-        self.viewControllers = [photosListNav, imageUploadNav]
-        
+        self.viewControllers = [photosListNav]
     }
 
 }
