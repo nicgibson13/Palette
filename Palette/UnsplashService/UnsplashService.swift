@@ -26,7 +26,13 @@ class UnsplashService {
             }
             guard let data = data else { completion(nil) ; return }
             do {
-                let unsplashPhotos = try JSONDecoder().decode([UnsplashPhoto].self, from: data)
+                var unsplashPhotos: [UnsplashPhoto]!
+                if unsplashRoute == .doubleRainbow {
+                    let photoSearchDictionary = try JSONDecoder().decode(PhotoSearchDictionary.self, from: data)
+                    unsplashPhotos = photoSearchDictionary.results
+                }else {
+                    unsplashPhotos = try JSONDecoder().decode([UnsplashPhoto].self, from: data)
+                }
                 self.photos = unsplashPhotos
                 completion(unsplashPhotos)
             }catch {

@@ -8,18 +8,18 @@
 
 import Foundation
 
+struct PhotoSearchDictionary: Decodable {
+    let results: [UnsplashPhoto]
+}
+
 struct UnsplashPhoto: Decodable {
     
     let urls: URLGroup
     let description: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case urls
-        case description = "alt_description"
-    }
 }
 
 struct URLGroup: Decodable {
     let small: String
+    let regular: String
 }
 

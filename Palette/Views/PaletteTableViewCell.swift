@@ -24,7 +24,7 @@ class PaletteTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        colorPaletteView.colors = [UIColor.lightGray, UIColor.darkGray]
+        colorPaletteView.colors = [UIColor(named: "offWhite")!]
     }
     
     func updateViews(){
@@ -43,8 +43,8 @@ class PaletteTableViewCell: UITableViewCell {
     }
     
     func fetchAndSetColors(for unsplashPhoto: UnsplashPhoto) {
-        ImaggaService().fetchColorsFor(imagePath: unsplashPhoto.urls.small) { (colors) in
-            DispatchQueue.main.async { [unowned self] in
+        ImaggaService.shared.fetchColorsFor(imagePath: unsplashPhoto.urls.regular) { (colors) in
+            DispatchQueue.main.async {
                 guard let colors = colors else { return }
                 self.colorPaletteView.colors = colors
             }
@@ -53,9 +53,12 @@ class PaletteTableViewCell: UITableViewCell {
     
     func setUpViews(){
         addAllSubviews()
-        paletteImageView.anchor(top: contentView.topAnchor, bottom: nil, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: SpacingConstants.verticalObjectBuffer, paddingBottom: 0, paddingLeft: 16, paddingRight: 16, width: contentView.frame.width - 32, height: contentView.frame.width - 32)
-        paletteTitleLabel.anchor(top: paletteImageView.bottomAnchor, bottom: nil, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: SpacingConstants.verticalObjectBuffer, paddingBottom: 0, paddingLeft: 16, paddingRight: 16, width: nil, height: 24)
-        colorPaletteView.anchor(top: paletteTitleLabel.bottomAnchor, bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: SpacingConstants.verticalObjectBuffer, paddingBottom: SpacingConstants.verticalObjectBuffer, paddingLeft: 16, paddingRight: 16, width: nil, height: 24)
+        let imageWidth = (contentView.frame.width - (SpacingConstants.outerHorizontalPadding * 2))
+        paletteImageView.anchor(top: contentView.topAnchor, bottom: nil, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: SpacingConstants.outerVerticalPadding, paddingBottom: 0, paddingLeft: SpacingConstants.outerHorizontalPadding, paddingRight: SpacingConstants.outerHorizontalPadding, width:imageWidth , height: imageWidth)
+        paletteTitleLabel.anchor(top: paletteImageView.bottomAnchor, bottom: nil, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: SpacingConstants.verticalObjectBuffer, paddingBottom: 0, paddingLeft: SpacingConstants.outerHorizontalPadding, paddingRight: SpacingConstants.outerHorizontalPadding, width: nil, height: SpacingConstants.oneLineElementHight)
+        colorPaletteView.anchor(top: paletteTitleLabel.bottomAnchor, bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, paddingTop: SpacingConstants.verticalObjectBuffer, paddingBottom: SpacingConstants.outerVerticalPadding, paddingLeft: SpacingConstants.outerHorizontalPadding, paddingRight: SpacingConstants.outerHorizontalPadding, width: nil, height: SpacingConstants.twoLineElementHieght)
+        colorPaletteView.clipsToBounds = true
+        colorPaletteView.layer.cornerRadius = (SpacingConstants.twoLineElementHieght / 2)
     }
     
     func addAllSubviews() {
@@ -75,7 +78,6 @@ class PaletteTableViewCell: UITableViewCell {
     
     lazy var paletteTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Roboto-Regular", size: 22)
         return label
     }()
     

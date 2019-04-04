@@ -10,42 +10,46 @@ import UIKit
 
 class PaletteListViewController: UIViewController {
     
+    var photos: [UnsplashPhoto] = []
+    
     var safeArea: UILayoutGuide {
         return self.view.safeAreaLayoutGuide
+    }
+    
+    var buttons: [UIButton] {
+        return [randomButton, featuredButton, doubleRainbowButton]
     }
     
     override func loadView() {
         super.loadView()
         addAllSubViews()
         setUpStackView()
+        paletteTableView.anchor(top: buttonStackView.bottomAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, paddingTop: 8, paddingBottom: 0, paddingLeft: 0, paddingRight: 0)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureTableView()
-        UnsplashService.shared.fetchFromUnsplash(for: .random) { (_) in
-            DispatchQueue.main.async {
-                self.paletteTableView.reloadData()
-            }
-        }
+        activateButtons()
+        searchForCategory(.featured)
+        selectButton(featuredButton)
     }
     
     func addAllSubViews(){
-        view.addSubview(calmButton)
-        view.addSubview(energeticButton)
-        view.addSubview(freshButton)
+        view.addSubview(featuredButton)
+        view.addSubview(randomButton)
+        view.addSubview(doubleRainbowButton)
         view.addSubview(buttonStackView)
         view.addSubview(paletteTableView)
     }
     
     func setUpStackView() {
         buttonStackView.translatesAutoresizingMaskIntoConstraints = false
-        buttonStackView.addArrangedSubview(calmButton)
-        buttonStackView.addArrangedSubview(energeticButton)
-        buttonStackView.addArrangedSubview(freshButton)
-        buttonStackView.anchor(top: safeArea.topAnchor, bottom: nil, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0)
-        paletteTableView.anchor(top: buttonStackView.bottomAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, paddingTop: 8, paddingBottom: 0, paddingLeft: 0, paddingRight: 0)
+        buttonStackView.addArrangedSubview(featuredButton)
+        buttonStackView.addArrangedSubview(randomButton)
+        buttonStackView.addArrangedSubview(doubleRainbowButton)
+        buttonStackView.anchor(top: safeArea.topAnchor, bottom: nil, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: SpacingConstants.outerHorizontalPadding, paddingRight: SpacingConstants.outerHorizontalPadding)
     }
     
     func configureTableView() {
@@ -55,32 +59,55 @@ class PaletteListViewController: UIViewController {
         paletteTableView.allowsSelection = false
     }
     
+    func activateButtons() {
+        buttons.forEach{ $0.addTarget(self, action: #selector(searchButtonTapped(sender:)), for: .touchUpInside)}
+    }
+    
+    func searchForCategory(_ unsplashRoute: UnsplashRoute) {
+        UnsplashService.shared.fetchFromUnsplash(for: unsplashRoute) { (unsplashPhotos) in
+            DispatchQueue.main.async {
+                guard let unsplashPhotos = unsplashPhotos else { return }
+                self.photos = unsplashPhotos
+                self.paletteTableView.reloadData()
+            }
+        }
+    }
+    
+    func selectButton(_ button: UIButton) {
+        buttons.forEach{ $0.setTitleColor(UIColor.lightGray, for: .normal)}
+        button.setTitleColor(UIColor(named: "devmountainBlue"), for: .normal)
+    }
+    
     //MARK: - Views
-    let calmButton: UIButton = {
+    let featuredButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("Calm", for: .normal)
+        button.setTitle("Featured", for: .normal)
+        button.contentHorizontalAlignment = .center
         return button
     }()
     
-    let energeticButton: UIButton = {
+    let randomButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("Energetic", for: .normal)
+        button.setTitle("Random", for: .normal)
+        button.contentHorizontalAlignment = .center
         return button
     }()
     
-    let freshButton: UIButton = {
+    let doubleRainbowButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("Fresh", for: .normal)
+        button.setTitle("Double Rainbow", for: .normal)
+        button.contentHorizontalAlignment = .center
         return button
     }()
     
     let buttonStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.distribution = .fillEqually
-        stackView.spacing = 16
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .equalCentering
         return stackView
     }()
     
@@ -88,6 +115,21 @@ class PaletteListViewController: UIViewController {
         let tableView = UITableView()
         return tableView
     }()
+    
+    //MARK: - Actions
+    @objc func searchButtonTapped(sender: UIButton) {
+        selectButton(sender)
+        switch sender{
+        case featuredButton:
+            searchForCategory(.featured)
+        case randomButton:
+            searchForCategory(.random)
+        case doubleRainbowButton:
+            searchForCategory(.doubleRainbow)
+        default:
+            print("Unanticipated button tap")
+        }
+    }
 }
 
 extension PaletteListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -95,18 +137,19 @@ extension PaletteListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let imageViewSpace: CGFloat = (view.frame.width - (2 * SpacingConstants.outerHorizontalPadding))
         let titleLabelSpace: CGFloat = SpacingConstants.oneLineElementHight
-        let colorPaletteViewSpace: CGFloat = SpacingConstants.oneLineElementHight
-        let verticalPadding: CGFloat = (5 * SpacingConstants.verticalObjectBuffer)
-        return imageViewSpace + titleLabelSpace + colorPaletteViewSpace + verticalPadding
+        let colorPaletteViewSpace: CGFloat = SpacingConstants.twoLineElementHieght
+        let verticalPadding: CGFloat = (3 * SpacingConstants.verticalObjectBuffer)
+        let outerVerticalPadding: CGFloat = (2 * SpacingConstants.outerVerticalPadding)
+        return imageViewSpace + titleLabelSpace + colorPaletteViewSpace + verticalPadding + outerVerticalPadding
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UnsplashService.shared.photos.count
+        return photos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! PaletteTableViewCell
-        let unsplashPhoto = UnsplashService.shared.photos[indexPath.row]
+        let unsplashPhoto = photos[indexPath.row]
         cell.unsplashPhoto = unsplashPhoto
         return cell
     }

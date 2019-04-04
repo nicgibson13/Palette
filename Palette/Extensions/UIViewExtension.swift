@@ -39,16 +39,10 @@ extension UIView {
     }
 }
 
-extension UIView {
-    func roundCorners(cornerRadius: CGFloat, corners: CACornerMask) {
-        self.clipsToBounds = true
-        self.layer.cornerRadius = cornerRadius
-        self.layer.maskedCorners = corners
-    }
-}
-
 struct SpacingConstants {
     static let verticalObjectBuffer: CGFloat = 8.0
-    static let outerHorizontalPadding: CGFloat = 16.0
+    static let outerHorizontalPadding: CGFloat = 24.0
+    static let outerVerticalPadding: CGFloat = 16.0
     static let oneLineElementHight: CGFloat = 24.0
+    static let twoLineElementHieght: CGFloat = 32
 }

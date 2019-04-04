@@ -44,17 +44,12 @@ class ColorPaletteView: UIView {
     
     private func buildColorBricks(){
         resetColorBricks()
-        for color in colors {
-            let colorBrick = generateColorBrick(for: color)
-            if color == colors.first {
-                colorBrick.roundCorners(cornerRadius: 12, corners: [.layerMinXMinYCorner, .layerMinXMaxYCorner])
-            }else if color == colors.last{
-                colorBrick.roundCorners(cornerRadius: 12, corners: [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
-            }
-            addSubview(colorBrick)
+        for color in self.colors {
+            let colorBrick = self.generateColorBrick(for: color)
+            self.addSubview(colorBrick)
             self.colorStackView.addArrangedSubview(colorBrick)
-            layoutIfNeeded()
         }
+        self.layoutIfNeeded()
     }
     
     private func resetColorBricks() {
