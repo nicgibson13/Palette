@@ -18,8 +18,8 @@ class PaletteTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        setUpViews()
         super.layoutSubviews()
+        setUpViews()
     }
     
     override func prepareForReuse() {
