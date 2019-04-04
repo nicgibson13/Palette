@@ -13,8 +13,6 @@ class UnsplashService {
     
     static let shared = UnsplashService()
     
-    var photos: [UnsplashPhoto] = []
-    
     func fetchFromUnsplash(for unsplashRoute: UnsplashRoute, completion: @escaping ([UnsplashPhoto]?) -> Void){
         guard let url = unsplashRoute.fullUrl else { return }
         print(url.absoluteString)
@@ -33,7 +31,6 @@ class UnsplashService {
                 }else {
                     unsplashPhotos = try JSONDecoder().decode([UnsplashPhoto].self, from: data)
                 }
-                self.photos = unsplashPhotos
                 completion(unsplashPhotos)
             }catch {
                 print("There was as error in \(#function) :  \(error) \(error.localizedDescription)")
