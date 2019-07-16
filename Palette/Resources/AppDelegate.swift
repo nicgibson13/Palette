@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        window = UIWindow()
-        window?.rootViewController = PaletteListViewController()
+        guard let window = window else {return false}
+        window.rootViewController = PaletteListViewController()
         
         return true
     }

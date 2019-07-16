@@ -2,7 +2,7 @@
 //  ColorPaletteView.swift
 //  Palette
 //
-//  Created by DevMountain on 4/1/19.
+//  Created by Nic Gibson on 7/16/19.
 //  Copyright © 2019 trevorAdcock. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import UIKit
 
 class ColorPaletteView: UIView {
     
-    var colors: [UIColor]{
-        didSet{
+    var colors: [UIColor] {
+        didSet {
             buildColorBricks()
         }
     }
@@ -27,13 +27,12 @@ class ColorPaletteView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError()
     }
     
     private func setUpViews() {
         addSubview(colorStackView)
-        colorStackView.anchor(top: topAnchor, bottom: bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0)
-        buildColorBricks()
+        colorStackView.anchor(top: topAnchor, bottom: bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, topPadding: 0, bottomPadding: 0, leadingPadding: 0, trailingPadding: 0)
     }
     
     private func generateColorBrick(for color: UIColor) -> UIView {
@@ -42,28 +41,28 @@ class ColorPaletteView: UIView {
         return colorBrick
     }
     
-    private func buildColorBricks(){
+    private func buildColorBricks() {
         resetColorBricks()
         for color in self.colors {
-            let colorBrick = self.generateColorBrick(for: color)
+            let colorBrick = generateColorBrick(for: color)
             self.addSubview(colorBrick)
             self.colorStackView.addArrangedSubview(colorBrick)
         }
         self.layoutIfNeeded()
     }
-    
+
     private func resetColorBricks() {
         for subView in colorStackView.arrangedSubviews {
             self.colorStackView.removeArrangedSubview(subView)
         }
     }
     
-    //MARK: - SubViews
+    // Step one
     lazy var colorStackView: UIStackView = {
-        let stackView = UIStackView()
+       let stackView = UIStackView()
+        stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = UIStackView.Alignment.fill
-        stackView.axis = .horizontal
         return stackView
     }()
 }
